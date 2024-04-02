@@ -27,6 +27,11 @@ while running:
   follower_countA = person_A["follower_count"]
   descriptionA = person_A["description"]
   countryA = person_A["country"]
+
+  while person_A == person_B:
+    person_B = random.choice(data)
+
+  
   print(f"Compare A: {nameA}, a {descriptionA}, from {countryA} ")
   # print the VS
   print(vs)
