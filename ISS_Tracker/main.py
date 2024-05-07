@@ -3,8 +3,9 @@ import requests
 from datetime import datetime
 import smtplib
 
-MY_LAT = 45.782978
-MY_LONG = 24.180397
+#Replace [...] with your own information
+MY_LAT = [...]
+MY_LONG = [...]
 
 response = requests.get(url="http://api.open-notify.org/iss-now.json")
 response.raise_for_status()
@@ -38,7 +39,8 @@ while True:
     if MY_LONG-5 <= iss_longitude <= MY_LONG+5 and MY_LAT-5 <= iss_latitude <= MY_LAT+5 and is_night():
         with smtplib.SMTP("smtp.gmail.com") as connection:
             connection.starttls()
-            connection.login(user="dariu.mihai21@gmail.com", password="jsobomkmkevussem")
+            # User = your google email , password = your google app password(16 letters)
+            connection.login(user="[...]", password="[...]")
             connection.sendmail(from_addr="dariu.mihai21@gmail.com", to_addrs="dariu.mihai21@gmail.com",
                                 msg="Subject: ISS TRACKER\n\nLook up! You may see the ISS")
             
