@@ -18,7 +18,7 @@ soup.prettify()
 price = float(soup.find("h3", class_="primary price").getText()[:3])
 name = soup.find("h1", class_="primary text-center mb-3").getText()
 
-if price < desired_price:
+if price <= desired_price:
     with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         connection.starttls()
         connection.login(user=my_email, password=PASSWORD)
